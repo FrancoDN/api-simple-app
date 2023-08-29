@@ -7,6 +7,10 @@
     android:padding="16dp"
     tools:context=".VerAlumnosActivity">
 
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewAlumnos"
         android:layout_width="match_parent"
@@ -14,5 +18,6 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </RelativeLayout>

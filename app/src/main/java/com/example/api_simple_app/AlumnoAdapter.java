@@ -24,6 +24,13 @@ public class AlumnoAdapter extends RecyclerView.Adapter<AlumnoAdapter.AlumnoView
     public AlumnoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.alumno_item, parent, false);
         return new AlumnoViewHolder(view);
+
+    }
+
+    public void actualizarLista(List<Alumno> nuevaLista) {
+        alumnos.clear();
+        alumnos.addAll(nuevaLista);
+        notifyDataSetChanged();
     }
 
     @Override

@@ -28,7 +28,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class DetalleAlumnoActivity extends AppCompatActivity {
 
     private EditText editTextNombre, editTextEdad;
-    private Button btnGuardar, btnCursos;
+    private Button btnGuardar, btnCursos, btnEliminarAlumno;
     private String alumnoId;
 
     private RecyclerView recyclerViewCursosInscritos;
@@ -45,6 +45,8 @@ public class DetalleAlumnoActivity extends AppCompatActivity {
         editTextEdad = findViewById(R.id.editTextEdad);
         btnGuardar = findViewById(R.id.btnGuardar);
         btnCursos = findViewById(R.id.btnCursos);
+        btnEliminarAlumno = findViewById(R.id.btnEliminarAlumno);
+
 
         alumnoId = getIntent().getStringExtra("alumno_id");
         String nombreAlumno = getIntent().getStringExtra("alumno_nombre");
@@ -61,7 +63,7 @@ public class DetalleAlumnoActivity extends AppCompatActivity {
 
         // Retrofit builder
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.11:3000/v1/")
+                .baseUrl("http://192.168.1.2:3000/v1/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -147,5 +149,31 @@ public class DetalleAlumnoActivity extends AppCompatActivity {
 
             }
         });
+
+        btnEliminarAlumno.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Call<Void> eliminarAlumnoCall = api.eliminarAlumno(alumnoId);
+                eliminarAlumnoCall.enqueue(new Callback<Void>() {
+                    @Override
+                    public void onResponse(Call<Void> call, Response<Void> response) {
+                        if (response.isSuccessful()) {
+                            Toast.makeText(DetalleAlumnoActivity.this, "Alumno eliminado", Toast.LENGTH_SHORT).show();
+                            finish(); // Opcionalmente, regresar a la pantalla anterior
+                        } else {
+                            // Manejar respuesta de error
+                            Toast.makeText(DetalleAlumnoActivity.this, "Error al eliminar alumno", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<Void> call, Throwable t) {
+                        // Manejar errores de conexión u otros errores
+                        Toast.makeText(DetalleAlumnoActivity.this, "Error en la conexión", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+
     }
 }

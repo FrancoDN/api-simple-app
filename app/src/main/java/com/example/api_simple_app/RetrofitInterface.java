@@ -5,6 +5,7 @@ import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
@@ -35,6 +36,10 @@ public interface RetrofitInterface {
             @Path("alumnoId") String alumnoId,
             @Body Map<String, Object> body
     );
+
+    @DELETE("alumnos/{alumnoId}")
+    Call<Void> eliminarAlumno(@Path("alumnoId") String alumnoId);
+
 
 
 }

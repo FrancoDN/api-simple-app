@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
+    android:background="@android:color/background_light"
     tools:context=".DetalleAlumnoActivity">
 
     <EditText
@@ -24,14 +25,14 @@
         android:layout_marginBottom="16dp"
         android:hint="Edad del alumno"
         android:inputType="number"
-        android:maxLines="1" />
+        android:maxLines="1"/>
 
     <Button
         android:id="@+id/btnGuardar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#4CAF50"
         android:text="Guardar Cambios" />
-
 
     <Button
         android:id="@+id/btnCursos"
@@ -39,10 +40,20 @@
         android:layout_height="wrap_content"
         android:text="Ver Cursos" />
 
+    <Button
+        android:id="@+id/btnEliminarAlumno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="#F44336"
+        android:text="Eliminar Alumno" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewCursosInscritos"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/recyclerview_bg"
+        android:padding="8dp" />
 
 </LinearLayout>

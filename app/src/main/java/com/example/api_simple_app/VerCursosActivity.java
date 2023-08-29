@@ -31,7 +31,7 @@ public class VerCursosActivity extends AppCompatActivity {
 
         // Retrofit builder
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.11:3000/v1/")
+                .baseUrl("http://192.168.1.2:3000/v1/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

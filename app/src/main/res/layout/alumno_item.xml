@@ -11,24 +11,40 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:padding="16dp">
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/baseline_person_24"
+            app:tint="#1976D2"
+            android:contentDescription="Icono de usuario" />
 
-        <TextView
-            android:id="@+id/textViewNombre"
-            android:layout_width="wrap_content"
+
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            tools:text="Nombre del Alumno" />
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="16dp">
 
-        <TextView
-            android:id="@+id/textViewEdad"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="14sp"
-            tools:text="Edad: 20 años" />
+            <TextView
+                android:id="@+id/textViewNombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:text="Nombre del Alumno" />
 
+            <TextView
+                android:id="@+id/textViewEdad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                tools:text="Edad: 20 años" />
+
+        </LinearLayout>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
